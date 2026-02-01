@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+/* BODY */
+body {
+  background-color: rgb(28, 32, 60);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER TODO */
+.todo {
+  width: 500px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TÍTULO */
+h1 {
+  display: flex;
+  justify-content: center;
+  color: rgb(66, 96, 128);
+  font-weight: 900;
+}
+
+/* FORM */
+form {
+  display: flex;
+  position: relative;
+}
+
+input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid rgb(42, 51, 61);
+  background-color: rgb(42, 51, 61);
+  color: white;
+}
+
+/* BOTÃO ADD */
+button.Add {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 14px;
+  border: none;
+  background-color: rgb(26, 52, 82);
+  color: white;
+  border-radius: 0 8px 8px 0;
+}
+
+button.Add:hover {
+  cursor: pointer;
+  background-color: white;
+  color: rgb(26, 52, 82);
+}
+
+/* LISTA */
+.lista {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ITEM */
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px solid rgb(155, 155, 155);
+  color: white;
+  position: relative;
+}
+
+.item span {
+  font-size: 14px;
+  margin-left: 10px;
+  width: 90%;
+}
+
+/* BOTÃO APAGAR */
+.apagar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 7px 4px;
+  background-color: rgb(28, 32, 60);
+  border: none;
+  color: rgb(80, 94, 94);
+}
+
+.apagar:hover {
+  cursor: pointer;
+  background-color: rgb(175, 20, 20);
+  color: rgb(28, 32, 60);
+}
+
+/* BOTÃO APAGAR TODOS */
+.apagartodos {
+  width: 100%;
+  margin-top: 30px;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: 1px solid rgb(175, 20, 20);
+  background-color: rgb(28, 32, 60);
+  color: rgb(175, 20, 20);
+  display: flex;
+  justify-content: center;
+}
+
+.apagartodos:hover {
+  cursor: pointer;
+  background-color: rgb(175, 20, 20);
+  color: rgb(28, 32, 60);
+}
+
+/* IMAGEM */
+.icone {
+  width: 400px;
+  display: block;
+  margin: 30px auto;
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media screen and (max-width: 600px) {
+  .todo {
+    width: 100%;
+  }
+
+  .lista {
+    width: 100%;
+  }
+
+  .icone {
+    width: 100%;
+  }
+}
