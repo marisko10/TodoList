@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './TodoList.css';
-import icone from './assets/Icon.png';
+import icone from './images/Icon.png';
 
 function TodoList() {
   const [input, setInput] = useState('');
