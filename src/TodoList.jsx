@@ -1,64 +1,62 @@
-import React, { useState } from "react";
-import "./TodoList.css";
-import icone from "./assets/Icon.png";
+import { useState, useEffect } from 'react';
+import './TodoList.css';
+import icone from './assets/Icon.png';
 
 function TodoList() {
-  const [lista, setLista] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [input, setInput] = useState('');
+  const [tarefa, setTarefa] = useState(() => {
+    const guardarTarefa = localStorage.getItem("tarefa")
+    return guardarTarefa ? JSON.parse(guardarTarefa) : [];
+  })
 
-  function adicionarTarefa(e) {
-    e.preventDefault();
-    if (inputValue === "") return;
+  function add() {
+    if (input.trim() !== '') {
+    const newtarefa = { id: Date.now(), text: input};
+    setTarefa([...tarefa, newtarefa]);
+    setInput('');
+    }}
+  
+    
+    useEffect(() => {
+      localStorage.setItem("tarefa", JSON.stringify(tarefa))
+     }, [tarefa]);
+     
 
-    setLista([...lista, inputValue]);
-    setInputValue("");
+  function remover(id) {
+    const removerTarefa = tarefa.filter((todo) => todo.id !== id);
+    setTarefa(removerTarefa);
   }
-
-  function apagarTarefa(index) {
-    const novaLista = lista.filter((_, i) => i !== index);
-    setLista(novaLista);
-  }
-
-  function apagarTodos() {
-    setLista([]);
-  }
+    
+ 
 
   return (
     <div className="todo">
-      <h1>Lista de Tarefas</h1>
-
-      <form onSubmit={adicionarTarefa}>
+      <h1>Todo List</h1>
+      <div className="input-area">
         <input
           type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          value={input}
           placeholder="Nova tarefa"
+          onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit" className="Add">Add</button>
-      </form>
-
-
-      {lista.length === 0 ? (
-        <img className="icone" src={icone} alt="icone" />
+        <button className="Add" onClick={add}>
+          Adicionar
+        </button>
+      </div>
+            { tarefa.length > 0 ? (
+      <ul className="lista">
+        {tarefa.map(todo => (
+          <li className='item' key={todo.id}>
+           <span>{todo.text} </span>
+            <button className="apagar" onClick={() => remover(todo.id)}>
+              X
+            </button>
+          </li>
+        ))}
+      </ul>
       ) : (
-        <div className="lista">
-          {lista.map((tarefa, index) => (
-            <div key={index} className="item">
-              <span>{tarefa}</span>
-              <button
-                className="apagar"
-                onClick={() => apagarTarefa(index)}
-              >
-                Apagar
-              </button>
-            </div>
-          ))}
-        </div>
+     <img src={icone} alt="Ícone" className="icone" />
       )}
-
-      <button className="apagartodos" onClick={apagarTodos}>
-        Apagar Todos
-      </button>
     </div>
   );
 }

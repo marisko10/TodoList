@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
 /* BODY */
 body {
   background-color: rgb(28, 32, 60);
@@ -24,8 +30,8 @@ h1 {
   font-weight: 900;
 }
 
-/* FORM */
-form {
+/* INPUT + BOTÃO */
+.input-area {
   display: flex;
   position: relative;
 }
@@ -63,10 +69,9 @@ button.Add:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
+
 }
 
-/* ITEM */
 .item {
   display: flex;
   justify-content: space-between;
@@ -81,42 +86,22 @@ button.Add:hover {
   margin-left: 10px;
   width: 90%;
 }
-
-/* BOTÃO APAGAR */
 .apagar {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 7px 4px;
-  background-color: rgb(28, 32, 60);
+  padding: 7px 10px;
   border: none;
+  background-color: rgb(28, 32, 60);
   color: rgb(80, 94, 94);
+  cursor: pointer;
 }
 
 .apagar:hover {
-  cursor: pointer;
   background-color: rgb(175, 20, 20);
   color: rgb(28, 32, 60);
 }
 
-/* BOTÃO APAGAR TODOS */
-.apagartodos {
-  width: 100%;
-  margin-top: 30px;
-  padding: 8px 0;
-  border-radius: 8px;
-  border: 1px solid rgb(175, 20, 20);
-  background-color: rgb(28, 32, 60);
-  color: rgb(175, 20, 20);
-  display: flex;
-  justify-content: center;
-}
-
-.apagartodos:hover {
-  cursor: pointer;
-  background-color: rgb(175, 20, 20);
-  color: rgb(28, 32, 60);
-}
 
 /* IMAGEM */
 .icone {
@@ -125,7 +110,7 @@ button.Add:hover {
   margin: 30px auto;
 }
 
-/* RESPONSIVIDADE MOBILE */
+/* RESPONSIVO */
 @media screen and (max-width: 600px) {
   .todo {
     width: 100%;
