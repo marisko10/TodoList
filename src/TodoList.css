@@ -110,6 +110,24 @@ button.Add:hover {
   margin: 30px auto;
 }
 
+/* BOTÃO APAGAR TODOS */
+.deleteAll {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: rgb(175, 20, 20);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.deleteAll:hover {
+  background-color: rgb(220, 30, 30);
+}
+
 /* RESPONSIVO */
 @media screen and (max-width: 600px) {
   .todo {

@@ -26,6 +26,10 @@ function TodoList() {
     const removerTarefa = tarefa.filter((todo) => todo.id !== id);
     setTarefa(removerTarefa);
   }
+
+  function apagartodos() {
+    setTarefa([]);
+  }
     
  
 
@@ -43,19 +47,24 @@ function TodoList() {
           Adicionar
         </button>
       </div>
-            { tarefa.length > 0 ? (
-      <ul className="lista">
-        {tarefa.map(todo => (
-          <li className='item' key={todo.id}>
-           <span>{todo.text} </span>
-            <button className="apagar" onClick={() => remover(todo.id)}>
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
+      {tarefa.length > 0 ? (
+        <>
+          <ul className="lista">
+            {tarefa.map((todo) => (
+              <li className="item" key={todo.id}>
+                <span>{todo.text} </span>
+                <button className="apagar" onClick={() => remover(todo.id)}>
+                  X
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button className="deleteAll" onClick={apagartodos}>
+            Apagar Todos
+          </button>
+        </>
       ) : (
-     <img src={icone} alt="Ícone" className="icone" />
+        <img src={icone} alt="Ícone" className="icone" />
       )}
     </div>
   );
