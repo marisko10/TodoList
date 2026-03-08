@@ -149,7 +149,9 @@ button.Add:hover {
 /* RESPONSIVO */
 @media screen and (max-width: 600px) {
   .todo {
-    width: 95%;
+    width: 100%;
+    padding: 0px 10px;
+    margin: 40px auto;
   }
 
   .icone {
