@@ -4,11 +4,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} 
+}
 
 /* BODY */
 body {
-  background-color: rgb(28, 32, 60);
+  background: linear-gradient(135deg, #1c203c, #2c3366, #3a3f88);
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
@@ -17,7 +17,11 @@ body {
 /* CONTAINER TODO */
 .todo {
   width: 500px;
-  margin-top: 20px;
+  margin-top: 40px;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: rgb(33, 38, 70);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
 }
@@ -26,8 +30,9 @@ body {
 h1 {
   display: flex;
   justify-content: center;
-  color: rgb(66, 96, 128);
+  color: #8ab4ff;
   font-weight: 900;
+  margin-bottom: 20px;
 }
 
 /* INPUT + BOTÃO */
@@ -40,9 +45,15 @@ input {
   width: 100%;
   padding: 14px 20px;
   border-radius: 8px;
-  border: 1px solid rgb(42, 51, 61);
+  border: none;
   background-color: rgb(42, 51, 61);
   color: white;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px #4a7cff;
 }
 
 /* BOTÃO ADD */
@@ -50,17 +61,17 @@ button.Add {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 14px;
+  padding: 14px 18px;
   border: none;
-  background-color: rgb(26, 52, 82);
+  background-color: #4a7cff;
   color: white;
   border-radius: 0 8px 8px 0;
+  transition: 0.2s;
 }
 
 button.Add:hover {
   cursor: pointer;
-  background-color: white;
-  color: rgb(26, 52, 82);
+  background-color: #6a94ff;
 }
 
 /* LISTA */
@@ -68,74 +79,77 @@ button.Add:hover {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-
+  gap: 12px;
 }
 
+/* ITEM */
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
-  border: 1px solid rgb(155, 155, 155);
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: rgb(42, 51, 61);
   color: white;
-  position: relative;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
 }
 
+.item:hover {
+  transform: translateY(-2px);
+}
+
+/* TEXTO */
 .item span {
   font-size: 14px;
   margin-left: 10px;
   width: 90%;
 }
+
+/* BOTÃO APAGAR ITEM */
 .apagar {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 7px 10px;
   border: none;
-  background-color: rgb(28, 32, 60);
-  color: rgb(80, 94, 94);
+  background: transparent;
+  color: rgb(160,160,160);
   cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
 }
 
 .apagar:hover {
-  background-color: rgb(175, 20, 20);
-  color: rgb(28, 32, 60);
+  color: rgb(255,80,80);
 }
-
 
 /* IMAGEM */
 .icone {
-  width: 400px;
+  width: 320px;
   display: block;
   margin: 30px auto;
+  opacity: 0.8;
 }
 
 /* BOTÃO APAGAR TODOS */
 .deleteAll {
   margin-top: 20px;
   padding: 12px;
-  background-color: rgb(175, 20, 20);
+  background-color: rgb(200,40,40);
   color: white;
   border: none;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.2s;
   width: 100%;
 }
 
 .deleteAll:hover {
-  background-color: rgb(220, 30, 30);
+  background-color: rgb(230,60,60);
 }
 
 /* RESPONSIVO */
 @media screen and (max-width: 600px) {
   .todo {
-    width: 100%;
-  }
-
-  .lista {
-    width: 100%;
+    width: 95%;
   }
 
   .icone {
